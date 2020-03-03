@@ -48,6 +48,32 @@ def main():
     checkIfWon()
     
 main()
-    
+
+
+def check():
+    global updatedSpaces
+    global lives
+    global letter
+    for x in range(0, int(wordLen)):
+        if letter == wordList[x]:
+            updatedSpaces[x] = wordList[x]
+            print(updatedSpaces)
+            print("You have:   ", lives, "   lives left!")
+            checklist = "".join(updatedSpaces)
+            master = "".join(wordList)
+            if checklist == master:
+                print("Congrats you solved the word!    ")
+                #break
+            else:
+                getLetter()
+        else:
+            lives -= 1
+            if lives != 0:
+                print("You have:  " + str(lives) + "  lives left!")
+                print(updatedSpaces)
+                getLetter()
+            else:
+                print("Game Over   ")
+                
  
                                                                                                       
